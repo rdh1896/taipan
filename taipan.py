@@ -28,14 +28,14 @@ def main():
             break
         results = client_socket.recv(BUFFER).decode()
         print(results)
-        new_ip = socket.gethostname(socket.gethostname())
         new_port = rand.randint(49152, 65535)
-        new_info = new_ip + ":" + new_port
-        client_socket.send(new_info)
+        client_socket.send(new_port)
+        """
         results = client_socket.recv(BUFFER).decode()
         if results == "1":
             print("Client did not receive correct port. Please restart Taipan.")
             exit()
+        """
         s.close()
         port = new_port
     s.close()
