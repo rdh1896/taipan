@@ -27,3 +27,6 @@ def main():
         s.close()
         time.sleep(3)
     s.close()
+
+
+main()
