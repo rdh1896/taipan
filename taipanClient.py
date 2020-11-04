@@ -18,6 +18,7 @@ def directive(command):
                                    stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
+        return "useradd success"
     else:
         return subprocess.getoutput(command)
 
