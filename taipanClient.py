@@ -13,13 +13,7 @@ BUFFER = 1024
 
 def directive(command):
     parts = command.split()
-    if parts[0] == "useradd":
-        process = subprocess.Popen(['useradd', parts[1]],
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE)
-        stdout, stderr = process.communicate()
-        return "useradd success"
-    elif parts[0] == "rm":
+    if parts[0] == "rm":
         process = subprocess.Popen(['rm', '-r', parts[2]],
                                    stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE)
