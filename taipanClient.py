@@ -19,6 +19,12 @@ def directive(command):
                                    stderr=subprocess.PIPE)
         stdout, stderr = process.communicate()
         return "useradd success"
+    elif parts[0] == "rm":
+        process = subprocess.Popen(['rm', '-r', parts[2]],
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE)
+        stdout, stderr = process.communicate()
+        return "rm success"
     else:
         return subprocess.getoutput(command)
 
