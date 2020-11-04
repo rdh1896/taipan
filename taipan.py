@@ -32,7 +32,7 @@ def main():
         if choice_port == "":
             new_port = str(rand.randint(49152, 65535))
         else:
-            new_port = int(choice_port)
+            new_port = choice_port
         client_socket.send(new_port.encode())
         """
         results = client_socket.recv(BUFFER).decode()
