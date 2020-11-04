@@ -28,8 +28,12 @@ def main():
             break
         results = client_socket.recv(BUFFER).decode()
         print(results)
-        new_port = rand.randint(49152, 65535)
-        client_socket.send(new_port)
+        choice_port = input("Port (Press enter for random): ")
+        if choice_port == "":
+            new_port = str(rand.randint(49152, 65535))
+        else:
+            new_port = int(choice_port)
+        client_socket.send(new_port.encode())
         """
         results = client_socket.recv(BUFFER).decode()
         if results == "1":
@@ -37,7 +41,7 @@ def main():
             exit()
         """
         s.close()
-        port = new_port
+        port = int(new_port)
     s.close()
 
 
